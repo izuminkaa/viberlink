@@ -1,120 +1,134 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Відкриваємо Viber...</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="1; url=viber://chat?number=%2B380957765663">
+<meta charset="UTF-8">
+<title>Відкриваємо Viber...</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="refresh" content="1; url=viber://chat?number=%2B380957765663">
+<style>
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 30px 15px;
+  background: #f9f9f9;
+  color: #444;
+  overflow: hidden;
+  position: relative;
+}
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 40px;
-      background: #f9f9f9; /* светлый фон */
-      color: #444;
-      overflow: hidden;
-      position: relative;
-    }
+/* Заголовок */
+h1 {
+  font-size: 2em;
+  margin: 15px 0;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  animation-delay: 0.3s;
+}
 
-    h1, p, a.button {
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-    }
-    h1 { animation-delay: 0.3s; }
-    p { animation-delay: 0.6s; }
-    a.button { animation-delay: 1s; }
+/* Текст инструкций */
+p {
+  font-size: 1.2em;
+  line-height: 1.5;
+  max-width: 90%;
+  margin: 8px auto;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  animation-delay: 0.6s;
+}
 
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
+/* Кнопка */
+a.button {
+  display: inline-block;
+  padding: 12px 22px;
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #fff;
+  background: #7360f2;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  animation-delay: 1s;
+}
+a.button:hover {
+  background: #5a4bd1;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,.2);
+}
 
-    a.button {
-      display: inline-block;
-      padding: 12px 24px;
-      margin-top: 20px;
-      font-size: 18px;
-      color: #fff;
-      background: #7360f2;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-    a.button:hover {
-      background: #5a4bd1;
-      transform: scale(1.05);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
+/* Логотип */
+.icon {
+  width: 80px;
+  margin-top: 30px;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  animation-delay: 0s;
+}
 
-    /* Логотип Viber встроенный SVG */
-    .icon {
-      width: 80px;
-      margin-top: 40px;
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-      animation-delay: 0s;
-    }
+/* Точки загрузки */
+.dots span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background: #7360f2;
+  border-radius: 50%;
+  animation: bounce 1s infinite alternate;
+}
+.dots span:nth-child(2){ animation-delay: .2s }
+.dots span:nth-child(3){ animation-delay: .4s }
 
-    /* Точки загрузки */
-    .dots span {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      margin: 0 5px;
-      background: #7360f2;
-      border-radius: 50%;
-      animation: bounce 1s infinite alternate;
-    }
-    .dots span:nth-child(2) { animation-delay: 0.2s; }
-    .dots span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes bounce { from{transform:translateY(0);opacity:.5} to{transform:translateY(-12px);opacity:1} }
+@keyframes fadeIn { to{opacity:1} }
 
-    @keyframes bounce {
-      from { transform: translateY(0); opacity: 0.5; }
-      to { transform: translateY(-15px); opacity: 1; }
-    }
+/* Пузырьки на фоне */
+.bubble {
+  position: absolute;
+  bottom: -40px;
+  background: rgba(115,96,242,.3);
+  border-radius: 50%;
+  opacity: .6;
+  animation: floatUp linear infinite;
+}
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(0.4); opacity:0.4; }
+  100% { transform: translateY(-120vh) scale(1); opacity:0; }
+}
 
-    /* Анимация пузырьков на фоне */
-    .bubble {
-      position: absolute;
-      background: rgba(115, 96, 242, 0.3);
-      border-radius: 50%;
-      opacity: 0.7;
-      animation: floatUp linear infinite;
-    }
-    @keyframes floatUp {
-      0% { transform: translateY(100vh) scale(0.5); opacity: 0.5; }
-      100% { transform: translateY(-100px) scale(1); opacity: 0; }
-    }
-  </style>
+/* Адаптивность для смартфонов */
+@media(max-width: 480px){
+  h1 { font-size: 1.8em; }
+  p { font-size: 1.1em; line-height: 1.4; }
+  a.button { font-size: 1em; padding: 10px 20px; }
+  .icon { width: 70px; }
+}
+</style>
 </head>
 <body>
-  <!-- Пузырьки -->
-  <script>
-    for(let i=0;i<15;i++){
-      let bubble = document.createElement('div');
-      bubble.className = 'bubble';
-      let size = Math.random()*30 + 20;
-      bubble.style.width = size + 'px';
-      bubble.style.height = size + 'px';
-      bubble.style.left = Math.random()*100 + 'vw';
-      bubble.style.animationDuration = (5 + Math.random()*5) + 's';
-      bubble.style.animationDelay = Math.random()*5 + 's';
-      document.body.appendChild(bubble);
-    }
-  </script>
+<script>
+// Пузырьки оптимизированы для смартфонов: меньше количество и размер
+let bubbleCount = window.innerWidth < 480 ? 8 : 15;
+for(let i=0;i<bubbleCount;i++){
+  let b=document.createElement('div');
+  b.className='bubble';
+  let size=Math.random()*(window.innerWidth<480?20:30)+15;
+  b.style.width=size+'px';
+  b.style.height=size+'px';
+  b.style.left=Math.random()*100+'vw';
+  b.style.animationDuration=(5+Math.random()*5)+'s';
+  b.style.animationDelay=Math.random()*5+'s';
+  document.body.appendChild(b);
+}
+</script>
 
-  <!-- Встроенный SVG логотип Viber -->
-  <svg class="icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="256" cy="256" r="256" fill="#7360F2"/>
-    <path d="M367 145c-25-25-63-25-88 0l-5 5c-3 3-5 8-4 13l10 40c1 5 0 9-4 12l-40 20c-3 2-7 1-10-1l-24-17c-3-2-7-2-10-1l-37 12c-5 1-10 3-12 7-3 3-5 8-4 13l10 40c1 5 0 9-4 12l-40 20c-3 2-7 1-10-1l-24-17c-3-2-7-2-10-1l-37 12c-5 1-10 3-12 7-3 3-5 8-4 13l10 40c1 5 0 9-4 12l-5 3c-25 25-25 63 0 88 25 25 63 25 88 0l5-5c3-3 5-8 4-13l-10-40c-1-5 0-9 4-12l40-20c3-2 7-1 10 1l24 17c3 2 7 2 10 1l37-12c5-1 10-3 12-7 3-3 5-8 4-13l-10-40c-1-5 0-9 4-12l40-20c3-2 7-1 10 1l24 17c3 2 7 2 10 1l37-12c5-1 10-3 12-7 3-3 5-8 4-13l-10-40c-1-5 0-9 4-12l5-5z" fill="#fff"/>
-  </svg>
+<!-- Логотип Viber -->
+<img src="https://www.freepnglogos.com/uploads/viber-logo-png/viber-logo-png-transparent-0.png" alt="Viber" class="icon">
 
-  <h1>Відкриваємо Viber</h1>
-  <div class="dots">
-    <span></span><span></span><span></span>
-  </div>
-  <p>Якщо автоматичне перенаправлення не спрацювало:</p>
-  <p>Натисніть на <strong>···</strong> у правому верхньому куті екрана, а потім оберіть <strong>«Відкрити у браузері»</strong>.</p>
-  <a class="button" href="viber://chat?number=%2B380957765663">Написати в Viber</a>
+<h1>Відкриваємо Viber</h1>
+<div class="dots"><span></span><span></span><span></span></div>
+<p>Якщо автоматичне перенаправлення не спрацювало:</p>
+<p>Натисніть на <strong>···</strong> у правому верхньому куті екрана, а потім оберіть <strong>«Відкрити у браузері»</strong>.</p>
+<a class="button" href="viber://chat?number=%2B380957765663">Написати в Viber</a>
 </body>
 </html>
