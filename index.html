@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 <head>
   <meta charset="UTF-8">
   <title>Відкриваємо Viber...</title>
@@ -11,9 +11,10 @@
       font-family: Arial, sans-serif;
       text-align: center;
       padding: 40px;
-      background: linear-gradient(135deg, #f0f0ff, #e6e0ff);
+      background: #f9f9f9; /* светлый фон */
       color: #444;
       overflow: hidden;
+      position: relative;
     }
 
     h1, p, a.button {
@@ -45,6 +46,7 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
+    /* Логотип Viber встроенный SVG */
     .icon {
       width: 80px;
       margin-top: 40px;
@@ -71,7 +73,7 @@
       to { transform: translateY(-15px); opacity: 1; }
     }
 
-    /* Анимация пузырьков чата на фоне */
+    /* Анимация пузырьков на фоне */
     .bubble {
       position: absolute;
       background: rgba(115, 96, 242, 0.3);
@@ -101,8 +103,13 @@
     }
   </script>
 
-  <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Viber_icon.svg" alt="Viber" class="icon">
-  <h1>Відкриваємо Viber...</h1>
+  <!-- Встроенный SVG логотип Viber -->
+  <svg class="icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="256" cy="256" r="256" fill="#7360F2"/>
+    <path d="M367 145c-25-25-63-25-88 0l-5 5c-3 3-5 8-4 13l10 40c1 5 0 9-4 12l-40 20c-3 2-7 1-10-1l-24-17c-3-2-7-2-10-1l-37 12c-5 1-10 3-12 7-3 3-5 8-4 13l10 40c1 5 0 9-4 12l-40 20c-3 2-7 1-10-1l-24-17c-3-2-7-2-10-1l-37 12c-5 1-10 3-12 7-3 3-5 8-4 13l10 40c1 5 0 9-4 12l-5 3c-25 25-25 63 0 88 25 25 63 25 88 0l5-5c3-3 5-8 4-13l-10-40c-1-5 0-9 4-12l40-20c3-2 7-1 10 1l24 17c3 2 7 2 10 1l37-12c5-1 10-3 12-7 3-3 5-8 4-13l-10-40c-1-5 0-9 4-12l40-20c3-2 7-1 10 1l24 17c3 2 7 2 10 1l37-12c5-1 10-3 12-7 3-3 5-8 4-13l-10-40c-1-5 0-9 4-12l5-5z" fill="#fff"/>
+  </svg>
+
+  <h1>Відкриваємо Viber</h1>
   <div class="dots">
     <span></span><span></span><span></span>
   </div>
