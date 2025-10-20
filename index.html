@@ -82,12 +82,6 @@ a.button:hover {
 @keyframes bounce { from{transform:translateY(0);opacity:.5} to{transform:translateY(-12px);opacity:1} }
 @keyframes fadeIn { to{opacity:1} }
 
-}
-@keyframes floatUp {
-  0% { transform: translateY(0) scale(0.6); opacity:0.5; }
-  100% { transform: translateY(-120vh) scale(1); opacity:0; }
-}
-
 /* Адаптивность для смартфонов */
 @media(max-width: 480px){
   h1 { font-size: 1.8em; }
@@ -104,10 +98,11 @@ a.button:hover {
 
 <h1>Відкриваємо Viber</h1>
 <div class="dots"><span></span><span></span><span></span></div>
-<p>Якщо автоматичне перенаправлення не спрацювало:</p>
-<p>Натисніть на <strong>···</strong> у правому верхньому куті екрана, а потім оберіть <strong>«Відкрити&nbsp;у&nbsp;браузері»</strong>.</p>
+
+<!-- Исправленные абзацы -->
+<p style="white-space: nowrap;">Якщо&nbsp;автоматичне&nbsp;перенаправлення&nbsp;не&nbsp;спрацювало:</p>
+<p>Натисніть на <strong style="font-size:1.5em;">···</strong> у правому верхньому куті екрана, а потім оберіть <strong>«Відкрити&nbsp;у&nbsp;браузері»</strong>.</p>
+
 <a class="button" href="viber://chat?number=%2B380957765663">Написати в Viber</a>
 </body>
 </html>
-
-
